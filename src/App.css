@@ -1,0 +1,135 @@
+.App {
+  text-align: center;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo
+   {
+      animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header
+ {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.searchbar{
+
+  position: absolute;
+  right: 450px;
+  width: 500px;
+  border: 3px solid #73AD21;
+  padding: 12px;
+  
+  
+
+}
+
+.btn
+{
+    position:absolute;
+    right: 390px;
+    border: 3px solid #73AD21;
+    padding: 12px;
+  }
+
+
+.header {
+  background-color: #a4c991;
+  
+  color: white;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+
+.logo-container {
+  text-align:; 
+ 
+}
+
+
+.text-below-logo {
+  padding-bottom: px;
+  margin-top: 0px; 
+  font-size: 12px; 
+  color: #333; 
+  font-style:;
+
+  font-weight: bold;
+}
+
+
+
+nav {
+  float: left;
+  width: 20%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 40%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
