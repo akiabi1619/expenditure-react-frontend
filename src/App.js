@@ -1,47 +1,51 @@
-import logo from './logoreact.png';
-import './App.css';
-import React , {useState} from 'react'
-import Header from './Header';
-//function App(){
-const StateTutorial = () => {
-  const [inputValue,setinputValue] = useState("");
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Signup from './SignUp';
+import Login from './Login';
+import Home from './Home';
 
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState('');
 
-return (
-    <>
-    
-    <Header />
-    
-    <body>
-    
-     
-    
-     
-     <section>
-    <nav>
-       <ul>
-        <li><a href="#">London</a></li>
-        <li><a href="#">Paris</a></li>
-        <li><a href="#">Tokyo</a></li>
-      </ul>
-    </nav>
-  
-    <article>
-      <article>
-     <h1>London</h1>
-      <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-      <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-      </article>
-      a<article>
-   </article>
-    </section>
+  useEffect(() => {
+    // Check session storage for authentication state
+    const storedUser = sessionStorage.getItem('username');
+    const storedToken = sessionStorage.getItem('authToken');
 
+    if (storedUser && storedToken) {
+      setIsAuthenticated(true);
+      setUsername(storedUser);
+    }
+  }, []);
 
-    
-   </body>  
+  const handleLogin = (user, token) => {
+    setIsAuthenticated(true);
+    setUsername(user);
+    sessionStorage.setItem('username', user);
+    sessionStorage.setItem('authToken', token); // Store token in sessionStorage
+  };
 
-   </>
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setUsername('');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('authToken'); // Remove token on logout
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login onLogin={handleLogin} />} />
+        <Route path="/signup" element={isAuthenticated ? <Navigate to="/" /> : <Signup />} />
+        <Route path="/" element={isAuthenticated ? (
+          <Home username={username} onLogout={handleLogout} /> // Pass onLogout to Home
+        ) : (
+          <Navigate to="/login" />
+        )} />
+      </Routes>
+    </Router>
   );
-} ;
+};
 
-export default StateTutorial;
+export default App;

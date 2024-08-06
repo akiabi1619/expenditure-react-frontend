@@ -89,9 +89,10 @@
 
 
 nav {
+  border: 1px solid #73AD21;
   float: left;
-  width: 20%;
-  height: 300px; /* only for demonstration, should be removed */
+  width: 10%;
+  height: 418px; /* only for demonstration, should be removed */
   background: #ccc;
   padding: 20px;
 }
@@ -102,13 +103,19 @@ nav ul {
   padding: 0;
 }
 
-article {
+
+.abcde{
+  border: 1px solid #73AD21;
   float: left;
   padding: 20px;
-  width: 40%;
+  width: 20%;
   background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
-}
+  height: 150px;
+  } /* only for demonstration, should be removed *
+
+
+
+
 
 
 /* Clear floats after the columns */
@@ -132,4 +139,28 @@ footer {
     width: 100%;
     height: auto;
   }
+}
+
+.table-area{
+border: 1px solid #73AD21;
+float: left;
+padding: 20px;
+width: 43.35%;
+background-color: #f1f1f1;
+height: 225px;}
+
+.graph-area{
+  border: 1px solid #73AD21;
+  float: left;
+  padding: 20px;
+  width: 33%;
+  background-color: #f1f1f1;
+  height: 150px;
+
+
+}
+.centered-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
